@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="34"
+   name=""
+   committed-date="2005-03-13T05:59:46.551362Z"
+   url="file:///subversion/Pod-Html-HtmlTree/trunk/lib/Pod"
+   last-author="root"
+   kind="dir"
+   uuid="1baaa558-1af2-0310-ad63-f323d840a72e"
+   revision="34"/>
+<entry
+   name="Html"
+   kind="dir"/>
+</wc-entries>

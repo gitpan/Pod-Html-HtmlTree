@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="27"
+   name=""
+   committed-date="2005-03-12T15:34:24.337921Z"
+   url="file:///subversion/Pod-Html-HtmlTree/trunk/bin"
+   last-author="root"
+   kind="dir"
+   uuid="1baaa558-1af2-0310-ad63-f323d840a72e"
+   revision="34"/>
+<entry
+   committed-rev="27"
+   name="sample_Pod-Html-HtmlTree.pl"
+   text-time="2005-03-13T06:02:03.000000Z"
+   committed-date="2005-03-12T15:34:24.337921Z"
+   checksum="1f7f1d6864d0160b5551d19fb3ced4b7"
+   last-author="root"
+   kind="file"
+   prop-time="2005-03-13T06:02:03.000000Z"/>
+</wc-entries>

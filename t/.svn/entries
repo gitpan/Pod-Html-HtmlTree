@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="30"
+   name=""
+   committed-date="2005-03-13T03:22:09.486264Z"
+   url="file:///subversion/Pod-Html-HtmlTree/trunk/t"
+   last-author="tomohiro"
+   kind="dir"
+   uuid="1baaa558-1af2-0310-ad63-f323d840a72e"
+   revision="34"/>
+<entry
+   committed-rev="30"
+   name="simple.t"
+   text-time="2005-03-13T06:02:03.000000Z"
+   committed-date="2005-03-13T03:22:09.486264Z"
+   checksum="c11ddd873f996f7bbb8b1fefa4c8a41b"
+   last-author="tomohiro"
+   kind="file"
+   prop-time="2005-03-13T06:02:03.000000Z"/>
+</wc-entries>

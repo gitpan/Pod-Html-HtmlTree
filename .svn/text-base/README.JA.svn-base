@@ -1,0 +1,2 @@
+Pod::Htmlと同じ機能を持ちます。ただし、infile , outfile 引数の変わりに、indir , outdir を使用します。
+
