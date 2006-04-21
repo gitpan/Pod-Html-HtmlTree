@@ -1,20 +1,26 @@
 #!/usr/bin/perl
 
-#$Id
 unshift @INC , qw ( blib/arch blib/lib );
+use FindBin;
+use lib "$FindBin::Bin/../lib";
 use Pod::Html::HtmlTree;	
-use Test;
+use Test::More qw/no_plan/;
 use File::Path;
 use File::stat;
 use strict;
-BEGIN{
-    plan tests =>  8;
-};
+
  
 &test_my_pod;
 &test_extention;
 &test_args;
-&test_mask;
+
+if( !is_ms_win() ){
+    &test_mask();
+}
+
+sub is_ms_win {
+ $^O =~ m/MSWin/ ? 1 : 0;
+}
 
 sub test_my_pod{
     my $p = Pod::Html::HtmlTree->new;
@@ -22,9 +28,9 @@ sub test_my_pod{
     $p->outdir( 't/test_pod/' );
     my $outfiles = $p->create;
     # ** check outfile count
-    ok ( 1 , scalar @{$outfiles} );
+    ok (  scalar @{$outfiles} );
     # ** check html file
-    ok ( -f $outfiles->[0] );
+    ok ( -f $outfiles->[0]{outfile} );
     rmtree ( 't/test_pod/' );
 }
 sub test_extention{
@@ -32,15 +38,15 @@ sub test_extention{
     my $p = Pod::Html::HtmlTree->new( { indir=>'lib/' , outdir=>'t/test_pod/' } );
     my @exts = ( 'foo', 'garrr' );
     $p->pod_exts( \@exts );
-    my $outfiles = $p->create;
-    ok ( !defined $outfiles );
+    my $outfiles = $p->create();
+    ok ( !scalar @{ $outfiles } );
     
     # * ok extention
     $p = Pod::Html::HtmlTree->new( { indir=>'lib/' , outdir=>'t/test_pod/' } );
     @exts = ( 'pm' );
     $p->pod_exts( \@exts );
     $outfiles = $p->create;
-    ok ( 1 , scalar @{$outfiles} );
+    ok ( scalar @{$outfiles} );
     rmtree ( 't/test_pod' );
 }
 
@@ -49,7 +55,7 @@ sub test_args{
      my $p = Pod::Html::HtmlTree->new( { indir=>'lib/' , outdir=>'t/test_pod/' } );
      $p->args({
 	 backlink  => 'top',
-	 cachedir  => 't/test_pod',
+	 #cachedir  => 't/test_pod',
 	 css       => 'pod.css',
 	 flush     => 0,
 	 header    => 0,
@@ -66,29 +72,28 @@ sub test_args{
 	 noverbose => 0, 
      });
      my $outfiles = $p->create;
-     ok( 1 , scalar @{$outfiles} );
+     ok( scalar @{$outfiles} );
      rmtree ( 't/test_pod' );
 }
 
 sub test_mask{
-    my $p = Pod::Html::HtmlTree->new;
+    my $p = Pod::Html::HtmlTree->new();
     $p->indir ( 'lib/' );
     $p->outdir( 't/test_pod/' );
     $p->mask_dir( 0776 );
     $p->mask_html( 0777 );
-    my $outfiles = $p->create;
+    my $outfiles = $p->create();
 
     # ** Dir mask check.
     my $st = stat( 't/test_pod/' );
     ok ( sprintf( "%04o" , $st->mode & 0777) eq '0776' );
     $st = stat ( 't/test_pod/Pod/' );
-    ok ( sprintf( "%04o" , $st->mode & 0777) eq '0776' );
-
+    ok ( sprintf( "%04o" , $st->mode & 0777) eq '0776');
 
     # ** Html file mask check.
-    $st = stat( $outfiles->[0] );
+    $st = stat( $outfiles->[0]{outfile} );
     ok ( sprintf( "%04o" , $st->mode & 0777)  eq '0777' );
+
     rmtree ( 't/test_pod' );
-    
 }
 1;

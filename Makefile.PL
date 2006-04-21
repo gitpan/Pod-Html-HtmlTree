@@ -7,7 +7,8 @@ use ExtUtils::MakeMaker;
 					File::Find     => 0 ,
 					File::Spec     => 0 ,
 					File::Basename => 0 ,
+					List::Util     => 0 ,
 					},
-		AUTHOR		=> 'Tomohiro Teranishi <tomohiro.teranishi@gmail.com>',
+		AUTHOR		=> 'Tomohiro Teranishi <tomohiro.teranishi+cpan@gmail.com>',
 	);
 

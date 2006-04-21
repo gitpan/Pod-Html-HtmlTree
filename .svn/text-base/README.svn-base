@@ -1,3 +1,0 @@
-This module does same as Pod::Html module except you need set indir & outdir instead of infile & outfile.
- Read Pod::Html document for more detail.
-

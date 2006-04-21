@@ -1,9 +1,0 @@
-Makefile.PL
-INSTALL
-Changes
-README
-README.JA
-MANIFEST
-lib/Pod/Html/HtmlTree.pm
-bin/sample_Pod-Html-HtmlTree.pl
-t/simple.t
