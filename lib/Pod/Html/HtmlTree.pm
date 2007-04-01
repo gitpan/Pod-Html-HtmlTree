@@ -7,7 +7,7 @@ use File::Path;
 use File::Basename;
 use List::Util qw/first/;
 use Data::Dumper;
-our $VERSION = 0.91;
+our $VERSION = 0.92;
 
 sub new {
     my $class = shift;
@@ -177,15 +177,17 @@ Pod::Html::HtmlTree - class to convert pod files to html tree
 =head1 DESCRIPTION
 
 This module does same as Pod::Html module but make html tree.
-Read Pod::Html document for more detail.
+Read L<Pod::Html> document for more detail.
+
+You may want to look at  L<Pod::ProjectDocs> before using this module which may be more fun to you. 
 
 =head1 AUTHOR
 
-Tomohiro Teranishi < tomohiro.teranishi+cpan@gmail.com >
+Tomohiro Teranishi C<tomohiro.teranishi@gmail.com>
 
 =head1 SEE ALSO
 
-perldoc , Pod::Html
+L<Pod::Html>
 
 =head1 COPYRIGHT
 
